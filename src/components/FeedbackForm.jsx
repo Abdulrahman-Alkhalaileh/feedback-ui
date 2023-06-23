@@ -1,11 +1,14 @@
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useContext} from 'react'
 import {v4 as uuidv4} from 'uuid';
 import React from 'react'
 import Card from './shared/Card'
 import Button from './shared/Button'
 import RatingSelect from './RatingSelect'
+import FeedbackContext from '../context/FeedbackContext';
 
-const FeedbackForm = ({setFeedbacks , feedbacks}) => {
+const FeedbackForm = () => {
+    const {feedbacks,setFeedbacks}=useContext(FeedbackContext)
+
     const [btnActive, setBtnActive]=useState('secondary')
     const [inputValue,setInputValue]=useState('');
     const [rating,setRating]=useState('10');
@@ -25,8 +28,10 @@ const FeedbackForm = ({setFeedbacks , feedbacks}) => {
             rating: rating,
             text: inputValue
         }
-        const newFeedbacks=[...feedbacks,newFeedback]
-        setFeedbacks(()=>feedbacks=newFeedbacks)
+        setFeedbacks([...feedbacks,newFeedback])
+        //or
+        // const newFeedbacks=[...feedbacks,newFeedback]
+        // setFeedbacks((prev)=>prev=newFeedbacks)
         setInputValue('')
         setRating('10')
     }
