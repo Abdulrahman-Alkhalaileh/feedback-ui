@@ -1,6 +1,6 @@
-import React from 'react'
 
 const RatingSelect = ({ setRating , rating }) => {
+
   const numbering=['1','2','3','4','5','6','7','8','9','10']
 
   return (
@@ -15,7 +15,7 @@ const RatingSelect = ({ setRating , rating }) => {
           onChange={()=>{
             setRating(prev=>prev=(Number)(num))
           }}
-          checked={(Number)(rating) === (Number)(num)}
+          checked={rating === (Number)(num)}
         />
         <label htmlFor={num} className='ratingLabel rating'>{num}</label>
       </div>

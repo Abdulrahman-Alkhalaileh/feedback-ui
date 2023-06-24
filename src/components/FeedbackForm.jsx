@@ -1,5 +1,4 @@
 import {useState,useEffect,useContext} from 'react'
-import {v4 as uuidv4} from 'uuid';
 import React from 'react'
 import Card from './shared/Card'
 import Button from './shared/Button'
@@ -7,11 +6,11 @@ import RatingSelect from './RatingSelect'
 import FeedbackContext from '../context/FeedbackContext';
 
 const FeedbackForm = () => {
-    const {feedbacks,setFeedbacks}=useContext(FeedbackContext)
+    const {addFeedback,feedbackEdit,addEditedFeedbacks}=useContext(FeedbackContext)
 
     const [btnActive, setBtnActive]=useState('secondary')
     const [inputValue,setInputValue]=useState('');
-    const [rating,setRating]=useState('10');
+    const [rating,setRating]=useState(10);
 
     useEffect(()=>{
         if(inputValue.length>=10){
@@ -21,24 +20,27 @@ const FeedbackForm = () => {
         }
     },[inputValue])
 
-    const addFeedback=(e)=>{
-        e.preventDefault()
-        const newFeedback={
-            id: uuidv4(),
-            rating: rating,
-            text: inputValue
+    useEffect(()=>{
+        if(feedbackEdit.item.text){
+        setInputValue(feedbackEdit.item.text)
+        setRating(feedbackEdit.item.rating)
         }
-        setFeedbacks([...feedbacks,newFeedback])
-        //or
-        // const newFeedbacks=[...feedbacks,newFeedback]
-        // setFeedbacks((prev)=>prev=newFeedbacks)
+    },[feedbackEdit])
+
+    const handleSubmin=(e)=>{
+        e.preventDefault()
+        if(feedbackEdit.edit){
+            addEditedFeedbacks(rating , inputValue)
+        }else{
+            addFeedback(rating , inputValue)
+        }
         setInputValue('')
-        setRating('10')
+        setRating(10)
     }
 
     return (
         <Card>
-            <form onSubmit={addFeedback}>
+            <form onSubmit={handleSubmin}>
                 <h2>How would you rate your service with us?</h2>
                 <RatingSelect setRating={setRating} rating={rating}/>
                 <div className="input-group">
