@@ -17,7 +17,6 @@ const FeedbackItem = ({feedback }) => {
         <Button version='edit' handleClick={()=>editFeedback(feedback)}>
           <FaEdit />
         </Button>
-
         {feedback.text}
       </Card>
   )

@@ -1,7 +1,6 @@
 import { createContext , useState } from 'react'
 import {v4 as uuidv4} from 'uuid';
 
-
 const FeedbackContext = createContext()
 
 export const FeedbackProvider=({children})=>{
@@ -21,7 +20,7 @@ export const FeedbackProvider=({children})=>{
             rating: 10,
             text: 'This is a feedback 3 from context'
         },   
-])
+    ])
 
     const [feedbackEdit,setFeedbackEdit]=useState({
         item: {},
@@ -54,6 +53,7 @@ export const FeedbackProvider=({children})=>{
             edit:true
         })
     }
+
     // Add edited feedback
     const addEditedFeedbacks=(rating , inputValue)=>{
         

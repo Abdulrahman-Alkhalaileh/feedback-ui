@@ -6,8 +6,6 @@ const FeedbackList = () => {
 
   const {feedbacks}=useContext(FeedbackContext)
 
-  
-
   return (
     <>
     {feedbacks.length===0? <p><strong>There is no feedbacks to show</strong></p> :
