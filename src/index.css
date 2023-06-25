@@ -197,3 +197,19 @@ input[type="radio"]:checked + .ratingLabel{
     }
     
 }
+
+@media only screen and (max-width: 410px){
+    .input-group{
+        transform: scale(0.7);
+    }
+
+    .rating{
+        height:45px;
+        width:45px;
+    }
+
+    input[type="radio"] {
+        height:45px;
+        width:45px;
+    }
+}
