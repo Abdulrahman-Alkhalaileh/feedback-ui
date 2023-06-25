@@ -27,7 +27,7 @@ const FeedbackForm = () => {
         }
     },[feedbackEdit])
 
-    const handleSubmin=(e)=>{
+    const handleSubmit=(e)=>{
         e.preventDefault()
         if(feedbackEdit.edit){
             addEditedFeedbacks(rating , inputValue)
@@ -40,7 +40,7 @@ const FeedbackForm = () => {
 
     return (
         <Card>
-            <form onSubmit={handleSubmin}>
+            <form onSubmit={handleSubmit}>
                 <h2>How would you rate your service with us?</h2>
                 <RatingSelect setRating={setRating} rating={rating}/>
                 <div className="input-group">

@@ -63,11 +63,15 @@ export const FeedbackProvider=({children})=>{
         }
         setFeedbacks(
             feedbacks.map((feedback)=>(
-                (feedback.id===feedbackEdit.item.id) ?
+                (feedback.id===feedbackEdit.item.id && feedbackEdit.edit ===true) ?
                 ({...feedback,...newFeedback}):
                 ({...feedback})
                     ))
             )
+            setFeedbackEdit({
+                item:{},
+                edit:false
+            })
     }
 
     return (
