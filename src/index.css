@@ -187,6 +187,14 @@ input[type="radio"]:checked + .ratingLabel{
     color: rgb(126, 66, 76);
 }
 
+.back-to-home{
+    margin-bottom: 20px;
+}
+
+.about-paragraph a{
+    color:rgb(36, 36, 36);
+}
+
 @media only screen and (min-width: 900px){
     .card{
         width:60%;
