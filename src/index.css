@@ -108,6 +108,18 @@ form p{
     cursor:pointer;
 }
 
+.edit{
+    position:absolute;
+    right:35px;
+    top:15px;
+    background: none;
+    height:15px;
+    width:15px;
+    padding:0;
+    margin:0;
+    cursor:pointer;
+}
+
 .rating{
     border: 1px white solid;
     width:55px;
