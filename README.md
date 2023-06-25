@@ -1,3 +1,6 @@
+# In case you want to try the app, here is the deployed version URL:
+https://moonlit-arithmetic-ec0096.netlify.app
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
